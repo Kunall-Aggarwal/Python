@@ -6,7 +6,11 @@ def fibonacci(n):
     elif n == 2:
         return 1
     else:
-        return fibonacci(n-1) + fibonacci(n-2)
+        a, b = 0, 1
+        for _ in range(3, n + 1):
+            a, b = b, a + b
+        return b
+
 
 
 def max_subarray_sum(arr):
