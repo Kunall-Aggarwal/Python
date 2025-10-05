@@ -1,4 +1,6 @@
 def fibonacci(n):
+    if not isinstance(n, int):
+        return "Input should be an integer"
     if n <= 0:
         return "Input should be a positive integer"
     elif n == 1:
@@ -6,7 +8,12 @@ def fibonacci(n):
     elif n == 2:
         return 1
     else:
-        return fibonacci(n-1) + fibonacci(n-2)
+        a = 0
+        b = 1
+        for _ in range(3, n + 1):
+            a, b = b, a + b
+        return b
+
 
 
 def max_subarray_sum(arr):
