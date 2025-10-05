@@ -1,12 +1,19 @@
 def fibonacci(n):
+    if not isinstance(n, int):
+        return "Input should be an integer"
     if n <= 0:
         return "Input should be a positive integer"
-    elif n == 1:
-        return 0
-    elif n == 2:
-        return 1
-    else:
-        return fibonacci(n-1) + fibonacci(n-2)
+    
+    fib_sequence = [0, 1]
+    if n <= len(fib_sequence):
+        return fib_sequence[n-1]
+
+    for i in range(2, n):
+        next_fib = fib_sequence[i-1] + fib_sequence[i-2]
+        fib_sequence.append(next_fib)
+
+    return fib_sequence[n-1]
+
 
 
 def max_subarray_sum(arr):
